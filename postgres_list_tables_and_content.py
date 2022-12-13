@@ -39,8 +39,6 @@ for table in results:
     cur.execute(f'SELECT column_name, data_type, character_maximum_length FROM information_schema.columns WHERE table_name = \'{table_name}\';')
 
     schema_column_names = tuple([column[0] for column in cur.fetchall()])
-
-    # print(f"Schema: {', '.join(schema_column_names)}")
     print(f"Schema: {schema_column_names}")
 
     cur.execute(f"SELECT * FROM {table_name}")
